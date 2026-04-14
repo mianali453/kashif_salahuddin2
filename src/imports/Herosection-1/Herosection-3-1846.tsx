@@ -68,49 +68,24 @@ export default function Herosection() {
 
       {/* ── MAIN CONTENT ── */}
       <div
-        className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-center"
+        className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col-reverse md:flex-row md:items-center"
         style={{ minHeight: "calc(100vh - 62px)" }}
       >
         {/* ── Person image ── desktop: left column | mobile: top ── */}
-        <div
-          className="block md:hidden w-full relative overflow-hidden"
-          style={{ height: 380 }}
-        >
+        <div className="block md:hidden w-full h-full overflow-hidden">
           <img
             alt="Kashif Salahuddin"
             src={imgImage9}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "auto",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "center top",
-              maxWidth: "none",
-            }}
+            className="w-full h-full object-cover object-top"
           />
         </div>
 
         {/* Desktop image — left column */}
-        <div
-          className="hidden md:block shrink-0 relative"
-          style={{ width: "47%", height: "calc(100vh - 62px)", maxHeight: 820 }}
-        >
+        <div className="hidden md:block w-[47%] h-[calc(100vh-62px)] max-h-[820px] overflow-hidden">
           <img
             alt="Kashif Salahuddin"
             src={imgImage9}
-            style={{
-              position: "absolute",
-              bottom: 0,
-              left: "-8%",
-              width: "115%",
-              height: "108%",
-              objectFit: "cover",
-              objectPosition: "top center",
-              maxWidth: "none",
-            }}
+            className="w-full h-full object-cover object-top"
           />
         </div>
 
