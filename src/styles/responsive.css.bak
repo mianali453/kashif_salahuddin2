@@ -1,0 +1,498 @@
+/* ========================================================
+   RESPONSIVE OVERRIDES — matches the mobile preview design
+   ======================================================== */
+
+/* ── Root page wrapper ── */
+.home-responsive {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ══════════════════════════════════════
+   ORGANISATIONS LOGO GRID
+   Desktop: single flex row | Mobile: 3-col grid
+   ══════════════════════════════════════ */
+.orgs-frame {
+  width: 100%;
+  background: #fff;
+}
+/* Desktop: all logos in one row */
+.orgs-logos-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: nowrap;
+}
+.orgs-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+/* Mobile: switch to 3-column grid */
+@media (max-width: 768px) {
+  .orgs-logos-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 28px 12px !important;
+    flex-wrap: unset !important;
+    justify-items: center;
+    align-items: center;
+    padding: 28px 20px !important;
+  }
+  .orgs-logo-item {
+    width: 100%;
+    justify-content: center;
+    overflow: visible !important;
+  }
+  /* Scale image-based logos */
+  .orgs-logo-item > div {
+    width: 100% !important;
+    max-width: 120px;
+    height: 60px !important;
+    position: relative !important;
+    inset: auto !important;
+  }
+  .orgs-logo-item > div img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    position: absolute !important;
+    inset: 0 !important;
+  }
+  /* Scale SVG-based logos (Download/Solvefy, FinalLogo/PureLogics, SvgviewerOutput/Suzuki) */
+  .orgs-logo-item > div[class*="overflow-clip"],
+  .orgs-logo-item > div[class*="h-[49px]"],
+  .orgs-logo-item > div[class*="h-[55px]"],
+  .orgs-logo-item > div[class*="h-[31px]"] {
+    width: 120px !important;
+    height: auto !important;
+    min-height: 40px;
+    overflow: visible !important;
+    position: relative !important;
+  }
+  .orgs-logo-item > div[class*="overflow-clip"] svg,
+  .orgs-logo-item > div[class*="overflow-clip"] > div {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .orgs-logo-item svg {
+    max-width: 120px;
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+
+
+/* ══════════════════════════════════════
+   SECTION CONTAINERS — strip absolute top positioning
+   All section.* containers use "absolute top-[NNNpx]"
+   We override them to be static/relative so they flow
+   in the document.
+   ══════════════════════════════════════ */
+.about-responsive > div,
+.models-responsive > div,
+.coaching-responsive > div,
+.cta-responsive > div,
+.footer-responsive > div {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+/* ══════════════════════════════════════
+   INNER CONTENT WRAPPERS — strip fixed widths
+   ══════════════════════════════════════ */
+.about-responsive [data-name="div.side-c"],
+.models-responsive [data-name="div.side-c"],
+.coaching-responsive [data-name="div.side-c"],
+.cta-responsive [data-name="div.content"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+/* ══════════════════════════════════════
+   SIDE-BY-SIDE SECTIONS — stack vertically on mobile
+   ══════════════════════════════════════ */
+.about-responsive [data-name="div.side-by-side-wr"],
+.models-responsive [data-name="div.side-by-side-wr"],
+.coaching-responsive [data-name="div.side-by-side-wr"] {
+  flex-direction: column !important;
+  gap: 24px !important;
+}
+.about-responsive [data-name="div.side-by-side-left"],
+.about-responsive [data-name="div.side-by-side-right:margin"],
+.models-responsive [data-name="div.side-by-side-left"],
+.models-responsive [data-name="div.side-by-side-right:margin"],
+.coaching-responsive [data-name="div.side-by-side-left"],
+.coaching-responsive [data-name="div.side-by-side-right:margin"],
+.coaching-responsive [data-name="div.side-by-side-right"] {
+  width: 100% !important;
+  flex: none !important;
+  min-width: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ══════════════════════════════════════
+   HEADING CONTAINERS — strip absolute/transform
+   ══════════════════════════════════════ */
+.about-responsive [data-name="h3"],
+.models-responsive [data-name="h3"],
+.coaching-responsive [data-name="h3"],
+.about-responsive [data-name="p.top-header"] {
+  height: auto !important;
+  width: 100% !important;
+}
+.about-responsive [data-name="h3"] > div,
+.models-responsive [data-name="h3"] > div,
+.coaching-responsive [data-name="h3"] > div,
+.about-responsive [data-name="p.top-header"] > div {
+  position: relative !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Typography scaling for mobile */
+.about-responsive [data-name="h3"] p,
+.models-responsive [data-name="h3"] p,
+.coaching-responsive [data-name="h3"] p {
+  font-size: clamp(22px, 5vw, 36px) !important;
+  line-height: 1.35 !important;
+}
+.about-responsive [data-name="p.top-header"] p,
+.about-responsive [data-name="p.top-header"] > div {
+  font-size: 13px !important;
+}
+
+/* Stats boxes — switch from 3-col grid to 1-col on mobile */
+.about-responsive [data-name="div.selling-boxes-wr"] {
+  grid-template-columns: 1fr !important;
+  height: auto !important;
+  padding: 20px 0 !important;
+}
+.about-responsive [data-name="div.selling-boxes-wr"] > div {
+  width: 100% !important;
+}
+.about-responsive .text-\[75px\] p {
+  font-size: 48px !important;
+  line-height: 1.2 !important;
+}
+
+/* ══════════════════════════════════════
+   ENGAGEMENT BOXES (Component 9, 12, 13...) 
+   These use absolute inset values — convert to relative flow
+   ══════════════════════════════════════ */
+.models-responsive [data-name="div.boxes-wr"],
+.models-responsive [data-name="div.side-c"] > div:last-child {
+  position: relative !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  width: 100% !important;
+}
+.models-responsive [data-name^="Component 9"],
+.models-responsive [data-name^="Component 12"],
+.models-responsive [data-name^="Component 13"],
+.models-responsive [data-name^="Component 14"],
+.models-responsive [data-name^="Component 15"],
+.models-responsive [data-name^="Component 16"],
+.models-responsive [class*="absolute bg-\[#f4f5fa\]"],
+.models-responsive div[class*="inset-[0_"] {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  min-height: auto !important;
+}
+
+/* "Read more" links inside boxes — make them relative */
+[data-name="Component 8"] {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  top: auto !important;
+  margin-top: 12px;
+}
+[data-name="div.box-btm"] {
+  min-height: auto !important;
+  height: auto !important;
+}
+[data-name="div.box-btm"] > div {
+  height: auto !important;
+}
+
+/* Box title - strip translate/absolute */
+[data-name="div.box-top"] [class*="-translate-y-1/2"],
+[data-name="div.box-top"] [class*="absolute"] {
+  position: relative !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* ══════════════════════════════════════
+   COACHING/SBS SECTIONS — images
+   ══════════════════════════════════════ */
+.coaching-responsive [data-name*="image"],
+.coaching-responsive [data-name*="Image"] {
+  width: 100% !important;
+  height: 240px !important;
+  min-height: 200px !important;
+  flex: none !important;
+  overflow: hidden;
+}
+.coaching-responsive [data-name*="image"] img,
+.coaching-responsive [data-name*="Image"] img {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  left: 0 !important;
+  top: 0 !important;
+  max-width: none !important;
+}
+
+/* ══════════════════════════════════════
+   CTA SECTION
+   ══════════════════════════════════════ */
+.cta-responsive [data-name="div.content"] {
+  width: 100% !important;
+  max-width: 1440px !important;
+}
+.cta-responsive [data-name="div.single-inner-600"] {
+  width: 100% !important;
+  max-width: 600px !important;
+}
+.cta-responsive [data-name*="h3"] p,
+.cta-responsive [data-name*="h3"] > div {
+  white-space: normal !important;
+}
+.cta-responsive [data-name="p"] p,
+.cta-responsive [data-name="p"] div {
+  white-space: normal !important;
+}
+.cta-responsive [data-name="a.cta:margin"] {
+  padding: 0 !important;
+}
+
+/* ══════════════════════════════════════
+   ORGANISATIONS STRIP
+   ══════════════════════════════════════ */
+.orgs-responsive {
+  width: 100%;
+  overflow: hidden;
+}
+.orgs-responsive > div {
+  position: relative !important;
+  transform: none !important;
+  left: auto !important;
+  top: auto !important;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 20px;
+}
+.orgs-responsive [class*="flex.gap-\[53px\]"],
+.orgs-responsive .flex.gap-\[53px\] {
+  flex-wrap: wrap !important;
+  height: auto !important;
+  padding: 20px !important;
+  justify-content: center !important;
+  gap: 28px !important;
+}
+.orgs-responsive .content-stretch.flex.gap-\[53px\] {
+  flex-wrap: wrap !important;
+  height: auto !important;
+  justify-content: center !important;
+  padding: 20px !important;
+}
+.orgs-responsive .text-\[48px\] p {
+  font-size: clamp(20px, 5vw, 40px) !important;
+  line-height: 1.3 !important;
+}
+
+/* ══════════════════════════════════════
+   FOOTER SECTION
+   ══════════════════════════════════════ */
+.footer-responsive > div {
+  position: relative !important;
+  transform: none !important;
+  left: auto !important;
+  top: auto !important;
+  width: 100% !important;
+  padding: 0 20px !important;
+}
+.footer-responsive [data-name="div.content"] {
+  flex-direction: column !important;
+  width: 100% !important;
+  gap: 32px !important;
+  padding: 40px 0 !important;
+}
+.footer-responsive [data-name="div.column"],
+.footer-responsive [data-name="ul"],
+.footer-responsive [data-name="div"] {
+  width: 100% !important;
+  flex: none !important;
+  padding-bottom: 0 !important;
+}
+/* Social icons strip — use flex row instead of absolute */
+.footer-responsive [data-name="ul.social"] {
+  height: auto !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+.footer-responsive [data-name="ul.social"] > [data-name="li"] {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+}
+
+/* ══════════════════════════════════════
+   GLOBAL MEDIA-QUERY OVERRIDES
+   ══════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow from fixed widths */
+  .home-responsive * {
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+  .home-responsive [class*="whitespace-nowrap"] {
+    white-space: normal !important;
+  }
+
+  /* Scale down large font sizes globally */
+  .home-responsive .text-\[54px\] p,
+  .home-responsive .text-\[54\.6px\] p {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+  .home-responsive .text-\[36px\] p {
+    font-size: 22px !important;
+  }
+  .home-responsive .text-\[48px\] p {
+    font-size: 26px !important;
+  }
+  .home-responsive .text-\[32px\] {
+    font-size: 18px !important;
+    width: 100% !important;
+  }
+  .home-responsive .text-\[20px\] p {
+    font-size: 15px !important;
+  }
+  .home-responsive .text-\[17\.6px\] p {
+    font-size: 14px !important;
+  }
+  /* Remove fixed pixel widths from text wrappers */
+  .home-responsive [class*="w-["] p,
+  .home-responsive [class*="w-["] > div {
+    width: 100% !important;
+  }
+
+  /* Boxes inside models section — force vertical stack */
+  .models-responsive [data-name="div.side-c"] > * {
+    width: 100% !important;
+  }
+  /* Nav gap collapsing */
+  .home-responsive [data-name="nav"] {
+    gap: 0 !important;
+    justify-content: space-between !important;
+    padding: 12px 20px !important;
+  }
+  /* Fix any remaining absolute-positioned children with top offsets */
+  .about-responsive div[class*="top-["],
+  .models-responsive div[class*="top-["],
+  .coaching-responsive div[class*="top-["],
+  .cta-responsive div[class*="top-["],
+  .footer-responsive div[class*="top-["] {
+    top: auto !important;
+    position: relative !important;
+  }
+
+  /* Stats boxes — 1 col */
+  .about-responsive [data-name="div.selling-boxes-wr"] {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  /* Tablet — 2-col grids, moderate scaling */
+  .home-responsive .text-\[54px\] p,
+  .home-responsive .text-\[54\.6px\] p {
+    font-size: 38px !important;
+    line-height: 1.2 !important;
+  }
+  .about-responsive [data-name="div.selling-boxes-wr"] {
+    grid-template-columns: 1fr 1fr !important;
+    height: auto !important;
+  }
+  .about-responsive [data-name="div.side-by-side-wr"],
+  .models-responsive [data-name="div.side-by-side-wr"],
+  .coaching-responsive [data-name="div.side-by-side-wr"] {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+}
+
+@media (min-width: 1101px) {
+  /* Desktop — restore two-column side-by-side layout */
+  .coaching-responsive [data-name="div.side-by-side-wr"] {
+    flex-direction: row !important;
+    gap: 115px !important;
+    align-items: flex-start !important;
+  }
+
+  /* Gray section (SectionSideBySide3): text-left, numbered-items-right */
+  .coaching-responsive [data-name="div.side-by-side-left"],
+  .coaching-responsive [data-name="div.side-by-side-right:margin"] {
+    flex: 1 0 0 !important;
+    width: auto !important;
+  }
+  .coaching-responsive [data-name="div.side-by-side-right:margin"] {
+    padding-top: 60px !important;
+  }
+
+  /* White section (SectionSideBySide4): image in DOM first → push text LEFT, image RIGHT */
+  .coaching-responsive [data-name="div.side-by-side-right"] {
+    flex: 1 0 0 !important;
+    width: auto !important;
+    order: -1 !important;   /* text moves to the left */
+  }
+  .coaching-responsive [data-name="div.side-by-side-left"] {
+    flex: 1 0 0 !important;
+    width: auto !important;
+    order: 0 !important;    /* image stays on the right */
+  }
+
+  /* On desktop, let the outer section handle padding — remove inner override */
+  .coaching-responsive [data-name="div.side-c"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
