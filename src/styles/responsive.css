@@ -154,7 +154,8 @@
    ══════════════════════════════════════ */
 .about-responsive [data-name="div.side-by-side-wr"],
 .models-responsive [data-name="div.side-by-side-wr"],
-.coaching-responsive [data-name="div.side-by-side-wr"] {
+.coaching-responsive [data-name="div.side-by-side-wr"],
+.coaching-responsive [data-name="div.side-by-side-wr-s4"] {
   flex-direction: column !important;
   gap: 24px !important;
 }
@@ -455,6 +456,36 @@
     flex-direction: column-reverse !important;
     gap: 40px !important;
     align-items: flex-start !important;
+  }
+
+  /* Section 4 — full-bleed image (edge to edge), text keeps section padding */
+  .coaching-responsive .bleed-image-mobile {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    flex: none !important;
+  }
+}
+
+/* Section 4 — flex row from 1024px: copy left, image right */
+@media (min-width: 1024px) {
+  .coaching-responsive [data-name="div.side-by-side-wr-s4"] {
+    flex-direction: row !important;
+    gap: 115px !important;
+    align-items: flex-start !important;
+  }
+  .coaching-responsive [data-name="div.side-by-side-wr-s4"] [data-name="div.side-by-side-right"] {
+    flex: 1 0 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    order: -1 !important;
+  }
+  .coaching-responsive [data-name="div.side-by-side-wr-s4"] [data-name="div.side-by-side-left"] {
+    flex: 1 0 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    order: 0 !important;
   }
 }
 

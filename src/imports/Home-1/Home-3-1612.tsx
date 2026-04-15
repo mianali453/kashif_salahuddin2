@@ -2520,15 +2520,22 @@ function DivSideBySideRight4() {
 
 function DivJayBlock1() {
   return (
-    <div className="relative w-full overflow-hidden" style={{ aspectRatio: "566/670" }} data-name="div.jay-block">
-      <img alt="" className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none" src={imgImage4} />
+    <div
+      className="relative w-full overflow-hidden rounded-none md:rounded-2xl"
+      style={{ aspectRatio: "566/670" }}
+      data-name="div.jay-block"
+    >
+      <img alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover object-top" src={imgImage4} />
     </div>
   );
 }
 
 function DivSideBySideLeft4() {
   return (
-    <div className="w-full md:flex-[1_0_0] md:min-h-px md:min-w-px relative" data-name="div.side-by-side-left">
+    <div
+      className="bleed-image-mobile w-full md:flex-[1_0_0] md:min-h-px md:min-w-px relative"
+      data-name="div.side-by-side-left"
+    >
       <DivJayBlock1 />
     </div>
   );
@@ -2536,8 +2543,11 @@ function DivSideBySideLeft4() {
 
 function DivSideBySideWr4() {
   return (
-    /* Image is first in DOM → top on mobile; CSS order flips it right on desktop */
-    <div className="flex flex-col md:flex-row gap-[40px] md:gap-[115px] items-start relative w-full" data-name="div.side-by-side-wr">
+    /* Image first in DOM → stacked on small screens; from 1024px row + order: text left, image right (see responsive.css) */
+    <div
+      className="flex flex-col items-start gap-[40px] relative w-full lg:gap-[115px]"
+      data-name="div.side-by-side-wr-s4"
+    >
       <DivSideBySideLeft4 />
       <DivSideBySideRight4 />
     </div>
@@ -2554,7 +2564,10 @@ function DivSideC4() {
 
 function SectionSectionSideBySide4() {
   return (
-    <div className="bg-white flex flex-col items-center w-full px-[24px] md:px-[144px]" data-name="section.section-side-by-side">
+    <div
+      className="bg-white flex flex-col items-center w-full md:px-[40px] min-[1101px]:!px-[144px]"
+      data-name="section.section-side-by-side"
+    >
       <DivSideC4 />
     </div>
   );
