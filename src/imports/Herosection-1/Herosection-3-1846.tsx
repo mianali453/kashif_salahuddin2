@@ -86,11 +86,11 @@ export default function Herosection() {
           Mobile  : full width, fixed height so text stays visible below
           md+     : fills left column, full remaining height
         */}
-        <div className="w-full h-full  md:max-h-none md:h-auto md:w-[45%] lg:w-[48%] overflow-hidden flex-shrink-0">
+        <div className="w-full h-full  md:max-h-none md:h-auto md:w-[45%] lg:w-[48%] overflow-hidden flex-shrink-0 content-end">
           <img
             alt="Kashif Salahuddin"
             src={imgImage9}
-            className="w-full h-full object-cover object-top"
+            className="w-full h-[83%] object-cover object-top lg:h-full"
             style={{ objectPosition: "center top" }}
           />
         </div>
