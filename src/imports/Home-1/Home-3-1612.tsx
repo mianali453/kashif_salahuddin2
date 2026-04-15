@@ -898,7 +898,7 @@ function DivSideBySideRightMargin1() {
 function DivSideBySideWr1() {
   return (
     <div className="relative shrink-0 w-full" data-name="div.side-by-side-wr">
-      <div className="flex flex-col md:flex-row gap-[24px] md:gap-[115px] md:items-start w-full">
+      <div className="flex flex-col md:flex-row gap-[24px] md:gap-[48px] lg:gap-[115px] md:items-start w-full">
         <div className="w-full md:flex-1 pt-[2px]">
           <H3 />
         </div>
@@ -1692,11 +1692,15 @@ function DivBoxesWr() {
 
   return (
     <div className="w-full" data-name="div.boxes-wr">
-      {/* Desktop: 3-column grid */}
-      <div className="hidden md:grid grid-cols-3 gap-[20px]">
+      {/* Desktop (≥1024px): 3-column grid */}
+      <div className="hidden lg:grid grid-cols-3 gap-[20px]">
         {cardList}
       </div>
-      {/* Mobile: horizontal scroll carousel */}
+      {/* Tablet (768px–1023px): 2-column grid */}
+      <div className="hidden md:grid lg:hidden grid-cols-2 gap-[20px]">
+        {cardList}
+      </div>
+      {/* Mobile (<768px): horizontal scroll carousel */}
       <div className="md:hidden">
         <div
           ref={scrollRef}
@@ -1740,7 +1744,7 @@ function DivSideC1() {
 
 function SectionSectionSideBySide1() {
   return (
-    <div className="bg-white flex flex-col items-center w-full px-[0px] md:px-[144px]" data-name="section.section-side-by-side">
+    <div className="bg-white flex flex-col items-center w-full px-[0px] md:px-[40px] lg:px-[144px]" data-name="section.section-side-by-side">
       <DivSideC1 />
     </div>
   );
