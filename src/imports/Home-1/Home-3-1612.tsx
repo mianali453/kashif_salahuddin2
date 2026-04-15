@@ -1744,7 +1744,7 @@ function DivSideC1() {
 
 function SectionSectionSideBySide1() {
   return (
-    <div className="bg-white flex flex-col items-center w-full px-[24px] md:px-[40px] min-[1101px]:!px-[144px]" data-name="section.section-side-by-side">
+    <div className="bg-white flex flex-col items-center w-full md:px-[40px] min-[1101px]:!px-[144px]" data-name="section.section-side-by-side">
       <DivSideC1 />
     </div>
   );
@@ -2058,7 +2058,7 @@ function Component14() {
 function DivBoxesWr1() {
   return (
     <div className="w-full pt-[71px]" data-name="div.boxes-wr">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-[40px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px]">
         <Component12 />
         <Component13 />
         <Component14 />
@@ -2289,7 +2289,7 @@ function DivSideC2() {
 
 function SectionSectionSideBySide2() {
   return (
-    <div className="bg-white flex flex-col items-center w-full px-[24px] md:px-[144px]" data-name="section.section-side-by-side">
+    <div className="bg-white flex flex-col items-center w-full md:px-[40px] min-[1101px]:!px-[144px]" data-name="section.section-side-by-side">
       <DivSideC2 />
     </div>
   );
