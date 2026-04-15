@@ -1734,7 +1734,7 @@ function DivBoxesWr() {
 
 function DivSideC1() {
   return (
-    <div className="content-stretch flex flex-col gap-[60px] md:gap-[90px] items-start w-full pb-[80px] md:pb-[121px] pt-[60px] md:pt-[120px] relative" data-name="div.side-c">
+    <div className="content-stretch flex flex-col gap-[60px] md:gap-[90px] items-start w-full pb-[80px] pt-[60px] md:pt-[120px] relative" data-name="div.side-c">
       <div aria-hidden="true" className="absolute border-[#ededed] border-b border-solid inset-0 pointer-events-none" />
       <DivSideBySideWr1 />
       <DivBoxesWr />
@@ -2067,9 +2067,9 @@ function DivBoxesWr1() {
   );
 }
 
-function PMarginTop() {
-  return <div className="h-[66px] w-full" data-name="p.margin-top" />;
-}
+// function PMarginTop() {
+//   return <div className="h-[66px] w-full" data-name="p.margin-top" />;
+// }
 
 function DivJayBlock() {
   return (
@@ -2281,7 +2281,7 @@ function DivSideC2() {
       <H4 />
       <P25 />
       <DivBoxesWr1 />
-      <PMarginTop />
+      {/* <PMarginTop /> */}
       <DivSideBySideWr2 />
     </div>
   );
