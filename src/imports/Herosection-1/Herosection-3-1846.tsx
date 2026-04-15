@@ -79,7 +79,7 @@ export default function Herosection() {
         Tablet  : two columns — image left (45%), text right (55%)
         Desktop : two columns — image left (48%), text right (52%)
       */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-stretch min-h-[calc(100svh-61px)]">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-61px)] w-full max-w-[1440px] flex-col md:flex-row md:items-stretch min-[769px]:max-[1000px]:px-[40px]">
 
         {/* ── PERSON IMAGE ── */}
         {/*
