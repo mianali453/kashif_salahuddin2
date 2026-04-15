@@ -36,33 +36,19 @@ function P() {
 
 function ArrowRightBlackSvg() {
   return (
-    <div className="h-[11px] relative shrink-0 w-[14px]" data-name="arrow-right-black.svg">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[inherit] size-full">
-        <div className="h-[11px] overflow-clip relative shrink-0 w-[13.2px]" data-name="Component 1">
-          <div className="absolute inset-[50.92%_12.5%_49.08%_0]" data-name="Vector">
-            <div className="absolute inset-[-0.83px_0]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 11.5504 1.65">
-                <path d="M0 0.825H11.5504" id="Vector" stroke="var(--stroke-0, #342646)" strokeWidth="1.65" />
-              </svg>
-            </div>
-          </div>
-          <div className="absolute inset-[10%_9.17%_45%_53.33%]" data-name="Vector">
-            <div className="absolute inset-[-11.79%_-11.78%]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 6.11683 6.11641">
-                <path d={svgPaths.p2114ec00} id="Vector" stroke="var(--stroke-0, #342646)" strokeWidth="1.65" />
-              </svg>
-            </div>
-          </div>
-          <div className="absolute inset-[45.92%_8.33%_9.08%_54.17%]" data-name="Vector">
-            <div className="absolute inset-[-11.79%_-11.78%]">
-              <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 6.11683 6.11642">
-                <path d={svgPaths.p1361e780} id="Vector" stroke="var(--stroke-0, #342646)" strokeWidth="1.65" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_164_1463)">
+        <path d="M0 5.60059H11.5504" stroke="#342646" stroke-width="1.65" />
+        <path d="M7.03906 1.09961L11.9892 6.04922" stroke="#342646" stroke-width="1.65" />
+        <path d="M7.15234 10.0014L12.1025 5.05176" stroke="#342646" stroke-width="1.65" />
+      </g>
+      <defs>
+        <clipPath id="clip0_164_1463">
+          <rect width="13.2" height="11" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+
   );
 }
 
@@ -134,21 +120,36 @@ function TwitterIcon() {
 
 function LinkedInIcon() {
   return (
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-      <path clipRule="evenodd" d={svgPaths.p191bbe00} fill="black" fillRule="evenodd" />
-      <path d={svgPaths.p1c82c200} fill="black" />
-      <path d={svgPaths.p1b755c00} fill="black" />
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_164_1469)">
+        <path d="M1.48355 2.9671C2.30289 2.9671 2.9671 2.30289 2.9671 1.48355C2.9671 0.664208 2.30289 0 1.48355 0C0.664208 0 0 0.664208 0 1.48355C0 2.30289 0.664208 2.9671 1.48355 2.9671Z" fill="black" />
+        <path d="M2.71984 3.95801H0.247258C0.110772 3.95801 0 4.06878 0 4.20527V11.623C0 11.7595 0.110772 11.8703 0.247258 11.8703H2.71984C2.85633 11.8703 2.9671 11.7595 2.9671 11.623V4.20527C2.9671 4.06878 2.85633 3.95801 2.71984 3.95801Z" fill="black" />
+        <path d="M10.0876 3.5464C9.03078 3.18441 7.70893 3.50239 6.91622 4.07257C6.88902 3.96624 6.7921 3.88712 6.67688 3.88712H4.20429C4.06781 3.88712 3.95703 3.99789 3.95703 4.13438V11.5521C3.95703 11.6886 4.06781 11.7994 4.20429 11.7994H6.67688C6.81336 11.7994 6.92413 11.6886 6.92413 11.5521V6.22124C7.3237 5.87706 7.8385 5.76727 8.25982 5.94629C8.66829 6.11887 8.9022 6.5402 8.9022 7.10148V11.5521C8.9022 11.6886 9.01297 11.7994 9.14946 11.7994H11.6221C11.7586 11.7994 11.8693 11.6886 11.8693 11.5521V6.6035C11.8411 4.57153 10.8852 3.81937 10.0876 3.5464Z" fill="black" />
+      </g>
+      <defs>
+        <clipPath id="clip0_164_1469">
+          <rect width="12" height="12" fill="white" />
+        </clipPath>
+      </defs>
     </svg>
   );
 }
 
 function InstagramIcon() {
   return (
-    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-      <path clipRule="evenodd" d={svgPaths.p7e30c00} fill="black" fillRule="evenodd" />
-      <path clipRule="evenodd" d={svgPaths.p20d00c00} fill="black" fillRule="evenodd" />
-      <path d={svgPaths.p1d2ad800} fill="black" />
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_164_1480)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 0.25H8.8125C10.8836 0.25 12.5625 1.92893 12.5625 4V8.8125C12.5625 10.8836 10.8836 12.5625 8.8125 12.5625H4C1.92893 12.5625 0.25 10.8836 0.25 8.8125V4C0.25 1.92893 1.92893 0.25 4 0.25ZM11.625 4C11.6216 2.44813 10.3644 1.19094 8.8125 1.1875H4C2.44812 1.19094 1.19094 2.44813 1.1875 4V8.8125C1.19094 10.3644 2.44812 11.6216 4 11.625H8.8125C10.3644 11.6216 11.6216 10.3644 11.625 8.8125V4Z" fill="black" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.71875 6.40625C3.72219 4.92341 4.92341 3.72219 6.40625 3.71875C7.88909 3.72219 9.09031 4.92341 9.09375 6.40625C9.09375 7.89052 7.89052 9.09375 6.40625 9.09375C4.92199 9.09375 3.71875 7.89052 3.71875 6.40625ZM8.15625 6.40625C8.15625 5.43975 7.37275 4.65625 6.40625 4.65625C5.44118 4.65968 4.65968 5.44118 4.65625 6.40625C4.65625 7.37275 5.43975 8.15625 6.40625 8.15625C7.37275 8.15625 8.15625 7.37275 8.15625 6.40625Z" fill="black" />
+        <path d="M8.69531 3.06583C8.69531 2.69131 8.99892 2.3877 9.37343 2.3877C9.74795 2.3877 10.0516 2.69131 10.0516 3.06583C10.0516 3.44034 9.74795 3.74395 9.37343 3.74395C8.99892 3.74395 8.69531 3.44034 8.69531 3.06583Z" fill="black" />
+      </g>
+      <defs>
+        <clipPath id="clip0_164_1480">
+          <rect width="13" height="13" fill="white" />
+        </clipPath>
+      </defs>
     </svg>
+
   );
 }
 
@@ -1719,11 +1720,10 @@ function DivBoxesWr() {
           {cardList.map((_, i) => (
             <div
               key={i}
-              className={`rounded-full transition-all duration-300 ${
-                i === activeCard
-                  ? "w-[32px] h-[8px] bg-[#022886]"
-                  : "w-[8px] h-[8px] bg-[#d9d9d9]"
-              }`}
+              className={`rounded-full transition-all duration-300 ${i === activeCard
+                ? "w-[32px] h-[8px] bg-[#022886]"
+                : "w-[8px] h-[8px] bg-[#d9d9d9]"
+                }`}
             />
           ))}
         </div>
@@ -2941,7 +2941,7 @@ function Frame18() {
         {/* SoftMind */}
         <div className="orgs-logo-item">
           <div style={{ position: "relative", width: 229, height: 70 }}>
-            <img alt="SoftMind Solutions" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", opacity: 0.4 }} src={imgDownload11} />
+            <img alt="SoftMind Solutions" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain" }} src={imgDownload11} />
           </div>
         </div>
         {/* PureLogics */}
@@ -2951,7 +2951,7 @@ function Frame18() {
         {/* Global Shapers */}
         <div className="orgs-logo-item">
           <div style={{ position: "relative", width: 87, height: 75 }}>
-            <img alt="Global Shapers Community" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", opacity: 0.4 }} src={img57Eb4E2A01A343549A4C0Ab07Ffdd9341} />
+            <img alt="Global Shapers Community" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain" }} src={img57Eb4E2A01A343549A4C0Ab07Ffdd9341} />
           </div>
         </div>
         {/* Suzuki */}
@@ -2961,7 +2961,7 @@ function Frame18() {
         {/* LUMS */}
         <div className="orgs-logo-item">
           <div style={{ position: "relative", width: 133, height: 55 }}>
-            <img alt="LUMS" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", opacity: 0.5 }} src={imgLumsLogoWhite1} />
+            <img alt="LUMS" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain" }} src={imgLumsLogoWhite1} />
           </div>
         </div>
       </div>
