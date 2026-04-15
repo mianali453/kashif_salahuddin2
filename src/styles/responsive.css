@@ -449,6 +449,13 @@
     grid-template-columns: 1fr !important;
     height: auto !important;
   }
+
+  /* CEO coaching FAQ + image: FAQ first, image at bottom */
+  .coaching-responsive [data-name="div.side-by-side-wr-faq"] {
+    flex-direction: column-reverse !important;
+    gap: 40px !important;
+    align-items: flex-start !important;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1100px) {
@@ -468,6 +475,12 @@
     flex-direction: column !important;
     gap: 32px !important;
   }
+  /* CEO coaching FAQ + image: FAQ first, image at bottom (not overridden by column above) */
+  .coaching-responsive [data-name="div.side-by-side-wr-faq"] {
+    flex-direction: column-reverse !important;
+    gap: 32px !important;
+    align-items: flex-start !important;
+  }
 }
 
 @media (min-width: 1101px) {
@@ -481,7 +494,8 @@
   }
 
   /* Desktop — restore two-column side-by-side layout */
-  .coaching-responsive [data-name="div.side-by-side-wr"] {
+  .coaching-responsive [data-name="div.side-by-side-wr"],
+  .coaching-responsive [data-name="div.side-by-side-wr-faq"] {
     flex-direction: row !important;
     gap: 115px !important;
     align-items: flex-start !important;
