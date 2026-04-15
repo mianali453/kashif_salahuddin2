@@ -2427,7 +2427,7 @@ function DivSideBySideWr3() {
 
 function DivSideC3() {
   return (
-    <div className="content-stretch flex flex-col items-center max-w-[1440px] py-[80px] md:py-[120px] relative w-full" data-name="div.side-c">
+    <div className="content-stretch flex flex-col items-center max-w-[1440px] py-[40px] min-[1101px]:py-[120px] relative w-full" data-name="div.side-c">
       <DivSideBySideWr3 />
     </div>
   );
@@ -2435,7 +2435,7 @@ function DivSideC3() {
 
 function SectionSectionSideBySide3() {
   return (
-    <div className="bg-[#f4f5fa] flex flex-col items-center w-full px-[24px] md:px-[144px]" data-name="section.section-side-by-side">
+    <div className="bg-[#f4f5fa] flex flex-col items-center w-full md:px-[40px] min-[1101px]:!px-[144px]" data-name="section.section-side-by-side">
       <DivSideC3 />
     </div>
   );
