@@ -604,7 +604,7 @@ function DivContent1() {
 function SectionFooter() {
   return (
     <footer className="bg-white w-full" data-name="section.footer">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-[144px] py-[60px]" data-name="div.content">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-[40px] min-[1101px]:!px-[144px] py-[60px]" data-name="div.content">
         <div className="flex flex-col md:flex-row gap-10 md:gap-6 items-start justify-between">
 
           {/* Logo column */}
