@@ -52,13 +52,8 @@ export default function Herosection() {
 
       {/* ── NAVBAR ── */}
       <nav
-        className="relative z-20 w-full flex items-center justify-between"
-        style={{
-          padding: "18px 24px",
-          borderBottom: "1px solid rgba(237,237,237,0.22)",
-        }}
+        className="relative z-20 flex w-full items-center justify-between border-b border-[rgba(237,237,237,0.22)] py-[18px] px-6 md:px-[40px] min-[1101px]:!px-[144px]"
       >
-        {/* Logo */}
         <div
           className="italic tracking-wide select-none"
           style={{ color: "#eee9e9", fontSize: "clamp(17px, 2.5vw, 24px)" }}
@@ -71,7 +66,6 @@ export default function Herosection() {
           </span>
         </div>
 
-        {/* Hamburger */}
         <a href="#" className="cursor-pointer shrink-0 z-20 p-1">
           <svg width="28" height="19" viewBox="0 0 30 19.7142" fill="none">
             <path d={svgPaths.p3d742900} fill="white" />
@@ -102,11 +96,11 @@ export default function Herosection() {
         </div>
 
         {/* ── TEXT CONTENT ── */}
-        <div className="flex flex-col justify-center gap-5 md:gap-6 lg:gap-8 flex-1 px-8 pt-6 pb-10 md:px-8 md:pt-12 md:pb-14 lg:px-14 lg:pt-16 lg:pb-16">
+        <div className="flex flex-col justify-center gap-5 md:gap-6 lg:gap-8 flex-1 px-8 pb-10 md:px-8 md:pb-14 lg:px-14 lg:pb-16">
 
           {/* Badge pill */}
           <div
-            className="self-center"
+            className="self-center md:self-start"
             style={{
               display: "inline-flex",
               alignItems: "center",
