@@ -1,4 +1,4 @@
-import React, { useState, useRef, useId } from "react";
+import React, { useEffect, useState, useRef, useId } from "react";
 import svgPaths from "./svg-k80nrigi6e";
 import imgImage6 from "./ff096eab6273d38dc67d30a0a7ce6d2313cce1ab.png";
 import imgImage4 from "./aa657f4fa22ef926586f7e8f1e899b13d2aabab7.png";
@@ -2970,6 +2970,30 @@ function Frame18() {
 }
 
 export default function Home() {
+  useEffect(() => {
+    const pageTitle = "Kashif Salahuddin | Strategic Growth Advisor";
+    const pageTagline = "Your next breakthrough is closer than you think.";
+    const pageDescription = "Strategic advisory and growth coaching for founders and leaders ready to unlock practical, measurable breakthroughs without unnecessary complexity.";
+
+    document.title = pageTitle;
+
+    const upsertMetaTag = (selector: string, attributeName: "name" | "property", attributeValue: string, content: string) => {
+      let metaTag = document.querySelector<HTMLMetaElement>(selector);
+      if (!metaTag) {
+        metaTag = document.createElement("meta");
+        metaTag.setAttribute(attributeName, attributeValue);
+        document.head.appendChild(metaTag);
+      }
+      metaTag.setAttribute("content", content);
+    };
+
+    upsertMetaTag('meta[name="description"]', "name", "description", pageDescription);
+    upsertMetaTag('meta[property="og:title"]', "property", "og:title", `${pageTitle} - ${pageTagline}`);
+    upsertMetaTag('meta[property="og:description"]', "property", "og:description", pageDescription);
+    upsertMetaTag('meta[name="twitter:title"]', "name", "twitter:title", `${pageTitle} - ${pageTagline}`);
+    upsertMetaTag('meta[name="twitter:description"]', "name", "twitter:description", pageDescription);
+  }, []);
+
   return (
     <div className="home-responsive bg-white" data-name="Home">
       {/* Hero */}
