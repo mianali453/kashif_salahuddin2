@@ -1744,7 +1744,7 @@ function DivSideC1() {
 
 function SectionSectionSideBySide1() {
   return (
-    <div className="bg-white flex flex-col items-center w-full px-[0px] md:px-[40px] lg:px-[144px]" data-name="section.section-side-by-side">
+    <div className="bg-white flex flex-col items-center w-full px-[24px] md:px-[40px] min-[1101px]:!px-[144px]" data-name="section.section-side-by-side">
       <DivSideC1 />
     </div>
   );
