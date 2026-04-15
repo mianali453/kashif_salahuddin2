@@ -1692,12 +1692,12 @@ function DivBoxesWr() {
 
   return (
     <div className="w-full" data-name="div.boxes-wr">
-      {/* Desktop (≥1024px): 3-column grid */}
-      <div className="hidden lg:grid grid-cols-3 gap-[20px]">
+      {/* Wide desktop (≥1241px): 3-column grid */}
+      <div className="hidden min-[1241px]:grid grid-cols-3 gap-[20px]">
         {cardList}
       </div>
-      {/* Tablet (768px–1023px): 2-column grid */}
-      <div className="hidden md:grid lg:hidden grid-cols-2 gap-[20px]">
+      {/* Tablet + narrow desktop (768px–1240px): 2-column — includes 1101px–1240px */}
+      <div className="hidden md:grid min-[1241px]:hidden grid-cols-2 gap-[20px]">
         {cardList}
       </div>
       {/* Mobile (<768px): horizontal scroll carousel */}
