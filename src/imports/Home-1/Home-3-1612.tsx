@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useId } from "react";
 import svgPaths from "./svg-k80nrigi6e";
 import imgImage6 from "./ff096eab6273d38dc67d30a0a7ce6d2313cce1ab.png";
 import imgImage4 from "./aa657f4fa22ef926586f7e8f1e899b13d2aabab7.png";
@@ -604,7 +604,7 @@ function DivContent1() {
 function SectionFooter() {
   return (
     <footer className="bg-white w-full" data-name="section.footer">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-[144px] py-[60px]" data-name="div.content">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-[40px] min-[1101px]:!px-[144px] py-[60px]" data-name="div.content">
         <div className="flex flex-col md:flex-row gap-10 md:gap-6 items-start justify-between">
 
           {/* Logo column */}
@@ -898,7 +898,7 @@ function DivSideBySideRightMargin1() {
 function DivSideBySideWr1() {
   return (
     <div className="relative shrink-0 w-full" data-name="div.side-by-side-wr">
-      <div className="flex flex-col md:flex-row gap-[24px] md:gap-[115px] md:items-start w-full">
+      <div className="flex flex-col md:flex-row gap-[24px] md:gap-[48px] lg:gap-[115px] md:items-start w-full">
         <div className="w-full md:flex-1 pt-[2px]">
           <H3 />
         </div>
@@ -1692,11 +1692,15 @@ function DivBoxesWr() {
 
   return (
     <div className="w-full" data-name="div.boxes-wr">
-      {/* Desktop: 3-column grid */}
-      <div className="hidden md:grid grid-cols-3 gap-[20px]">
+      {/* Desktop (≥1024px): 3-column grid */}
+      <div className="hidden lg:grid grid-cols-3 gap-[20px]">
         {cardList}
       </div>
-      {/* Mobile: horizontal scroll carousel */}
+      {/* Tablet only (768px–1023px): 2-column grid — hidden on desktop */}
+      <div className="hidden md:grid lg:hidden grid-cols-2 gap-[20px]">
+        {cardList}
+      </div>
+      {/* Mobile (<768px): horizontal scroll carousel */}
       <div className="md:hidden">
         <div
           ref={scrollRef}
@@ -1730,7 +1734,7 @@ function DivBoxesWr() {
 
 function DivSideC1() {
   return (
-    <div className="content-stretch flex flex-col gap-[60px] md:gap-[90px] items-start w-full pb-[80px] md:pb-[121px] pt-[60px] md:pt-[120px] relative" data-name="div.side-c">
+    <div className="content-stretch flex flex-col gap-[60px] md:gap-[90px] items-start w-full pb-[80px] pt-[60px] md:pt-[120px] relative" data-name="div.side-c">
       <div aria-hidden="true" className="absolute border-[#ededed] border-b border-solid inset-0 pointer-events-none" />
       <DivSideBySideWr1 />
       <DivBoxesWr />
@@ -1740,7 +1744,7 @@ function DivSideC1() {
 
 function SectionSectionSideBySide1() {
   return (
-    <div className="bg-white flex flex-col items-center w-full px-[0px] md:px-[144px]" data-name="section.section-side-by-side">
+    <div className="bg-white flex flex-col items-center w-full md:px-[40px] min-[1101px]:!px-[144px]" data-name="section.section-side-by-side">
       <DivSideC1 />
     </div>
   );
@@ -2054,7 +2058,7 @@ function Component14() {
 function DivBoxesWr1() {
   return (
     <div className="w-full pt-[71px]" data-name="div.boxes-wr">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-[40px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px]">
         <Component12 />
         <Component13 />
         <Component14 />
@@ -2063,44 +2067,84 @@ function DivBoxesWr1() {
   );
 }
 
-function PMarginTop() {
-  return <div className="h-[66px] w-full" data-name="p.margin-top" />;
-}
+// function PMarginTop() {
+//   return <div className="h-[66px] w-full" data-name="p.margin-top" />;
+// }
 
 function DivJayBlock() {
   return (
-    <div className="relative w-full flex-1 min-h-[360px] md:min-h-[500px] overflow-hidden rounded-2xl" data-name="div.jay-block" style={{ minHeight: 360 }}>
+    <div
+      className="relative h-[280px] w-full shrink-0 overflow-hidden sm:h-[320px] md:h-[420px] lg:h-[500px]"
+      data-name="div.jay-block"
+    >
       <img
         alt="Kashif on stage"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="h-full w-full object-contain object-center"
         src={imgImage6}
       />
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
     </div>
   );
 }
 
 function DivSideBySideLeft2() {
   return (
-    <div className="w-full md:flex-1 flex flex-col items-start self-stretch" data-name="div.side-by-side-left">
+    <div
+      className="flex w-full max-w-full flex-col items-start self-start md:max-w-[min(100%,440px)] md:self-center lg:max-w-none lg:flex-1 lg:self-start"
+      data-name="div.side-by-side-left"
+    >
       <DivJayBlock />
     </div>
   );
 }
 
-function PFaqQuestion() {
+function FaqAccordionItem({
+  title,
+  children,
+  isOpen,
+  onToggle,
+  borderClass = "border-[#ededed]",
+}: {
+  title: string;
+  children: React.ReactNode;
+  isOpen: boolean;
+  onToggle: () => void;
+  borderClass?: string;
+}) {
+  const panelId = useId();
+  const headingId = useId();
+
   return (
-    <div className="relative shrink-0 w-full" data-name="p.faq_question">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[20px] pr-[40px] relative w-full">
-        <div className="absolute flex h-[2px] items-center justify-center right-[9px] top-[19px] w-[20px]" style={{ "--transform-inner-width": "1185", "--transform-inner-height": "0" } as React.CSSProperties}>
-          <div className="flex-none rotate-90">
-            <div className="bg-[#02103f] h-[20px] w-[2px]" data-name="::before" />
-          </div>
+    <div className={`relative w-full border-b border-solid ${borderClass}`} data-name="div.faq_item">
+      <button
+        type="button"
+        id={headingId}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        onClick={onToggle}
+        className="flex w-full touch-manipulation items-start justify-between gap-3 py-5 pr-2 text-left md:pr-10"
+      >
+        <span
+          className="flex-1 font-['DM_Sans:Bold',sans-serif] font-bold text-[clamp(18px,2.4vw,25.6px)] leading-[1.35] text-black"
+          style={{ fontVariationSettings: "'opsz' 14" }}
+        >
+          {title}
+        </span>
+        <span className="relative mt-1 h-5 w-5 shrink-0" aria-hidden>
+          <span className="absolute left-1/2 top-1/2 h-[2px] w-[20px] -translate-x-1/2 -translate-y-1/2 bg-[#02103f]" />
+          <span
+            className={`absolute left-1/2 top-1/2 h-[20px] w-[2px] -translate-x-1/2 -translate-y-1/2 bg-[#02103f] transition-opacity duration-200 ${isOpen ? "opacity-0" : "opacity-100"}`}
+          />
+        </span>
+      </button>
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={headingId}
+        className={`grid transition-[grid-template-rows] duration-300 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="pb-6 pt-0">{children}</div>
         </div>
-        <div className="flex flex-col font-['DM_Sans:Bold',sans-serif] font-bold justify-center leading-[0] relative shrink-0 text-[25.6px] text-black whitespace-nowrap" style={{ fontVariationSettings: "'opsz' 14" }}>
-          <p className="leading-[35.84px]">What does a breakthrough look like?</p>
-        </div>
-        <div className="absolute bg-[#02103f] h-[2px] right-[9px] top-[20px] w-[20px]" data-name="::after" />
       </div>
     </div>
   );
@@ -2191,62 +2235,49 @@ function Div1() {
   );
 }
 
-function PFaqQuestion1() {
+function FaqAnswerEngage() {
   return (
-    <div className="relative shrink-0 w-full" data-name="p.faq_question">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[20px] pr-[40px] relative w-full">
-        <div className="absolute bg-[#02103f] h-[20px] right-[17.61px] top-[10px] w-[2px]" data-name="::before" />
-        <div className="flex flex-col font-['DM_Sans:Bold',sans-serif] font-bold justify-center leading-[0] relative shrink-0 text-[25.6px] text-black whitespace-nowrap" style={{ fontVariationSettings: "'opsz' 14" }}>
-          <p className="leading-[35.84px]">What happens when you engage Kashif?</p>
-        </div>
-        <div className="absolute bg-[#02103f] h-[2px] right-[8.61px] top-[20px] w-[20px]" data-name="::after" />
-      </div>
+    <div className="w-full max-w-full" data-name="p.faq_answer">
+      <p className="m-0 font-['DM_Sans:Regular',sans-serif] font-normal text-[17.6px] leading-[24.64px] text-black" style={{ fontVariationSettings: "'opsz' 14" }}>
+        You begin with a strategic discovery call, then structured 1:1 sessions. Kashif works directly with you—no committees—moving from rapid stabilization to structural fixes so the firefighting stops for good.
+      </p>
     </div>
   );
 }
 
-function DivFaqRow() {
+function FaqAnswerWho() {
   return (
-    <div className="content-stretch flex flex-col items-start pb-px relative shrink-0 w-full" data-name="div.faq_row">
-      <div aria-hidden="true" className="absolute border-[#ededed] border-b border-solid inset-0 pointer-events-none" />
-      <PFaqQuestion1 />
-    </div>
-  );
-}
-
-function PFaqQuestion2() {
-  return (
-    <div className="relative shrink-0 w-full" data-name="p.faq_question">
-      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[20px] pr-[40px] relative w-full">
-        <div className="absolute bg-[#02103f] h-[20px] right-[17.61px] top-[10px] w-[2px]" data-name="::before" />
-        <div className="flex flex-col font-['DM_Sans:Bold',sans-serif] font-bold justify-center leading-[0] relative shrink-0 text-[25.6px] text-black whitespace-nowrap" style={{ fontVariationSettings: "'opsz' 14" }}>
-          <p className="leading-[35.84px]">Who is this for?</p>
-        </div>
-        <div className="absolute bg-[#02103f] h-[2px] right-[8.61px] top-[20px] w-[20px]" data-name="::after" />
-      </div>
-    </div>
-  );
-}
-
-function DivFaqRow1() {
-  return (
-    <div className="content-stretch flex flex-col items-start pb-px relative shrink-0 w-full" data-name="div.faq_row">
-      <div aria-hidden="true" className="absolute border-[#ededed] border-b border-solid inset-0 pointer-events-none" />
-      <PFaqQuestion2 />
+    <div className="w-full max-w-full" data-name="p.faq_answer">
+      <p className="m-0 font-['DM_Sans:Regular',sans-serif] font-normal text-[17.6px] leading-[24.64px] text-black" style={{ fontVariationSettings: "'opsz' 14" }}>
+        Founders and CEOs who own outcomes: growth, margin, clarity, or a full leadership reset. If you want practical fixes instead of theory, and direct access instead of a junior associate, this is built for you.
+      </p>
     </div>
   );
 }
 
 function DivFaqSectionRow() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggle = (index: number) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
   return (
-    <div className="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full" data-name="div.faq_section_row">
-      <div className="content-stretch flex flex-col items-start pb-[40.99px] relative shrink-0 w-full" data-name="Component 10">
-        <div aria-hidden="true" className="absolute border-[#02103f] border-b border-solid inset-0 pointer-events-none" />
-        <PFaqQuestion />
+    <div className="relative w-full shrink-0" data-name="div.faq_section_row">
+      <FaqAccordionItem
+        title="What does a breakthrough look like?"
+        isOpen={openIndex === 0}
+        onToggle={() => toggle(0)}
+        borderClass="border-[#02103f]"
+      >
         <Div1 />
-      </div>
-      <DivFaqRow />
-      <DivFaqRow1 />
+      </FaqAccordionItem>
+      <FaqAccordionItem title="What happens when you engage Kashif?" isOpen={openIndex === 1} onToggle={() => toggle(1)}>
+        <FaqAnswerEngage />
+      </FaqAccordionItem>
+      <FaqAccordionItem title="Who is this for?" isOpen={openIndex === 2} onToggle={() => toggle(2)}>
+        <FaqAnswerWho />
+      </FaqAccordionItem>
     </div>
   );
 }
@@ -2261,7 +2292,10 @@ function DivSideBySideRight2() {
 
 function DivSideBySideWr2() {
   return (
-    <div className="flex flex-col md:flex-row items-start pt-[71px] w-full gap-[40px] md:gap-[115px]" data-name="div.side-by-side-wr">
+    <div
+      className="flex flex-col-reverse items-start gap-[40px] pt-[71px] w-full md:gap-[48px] min-[1101px]:flex-row min-[1101px]:gap-[115px]"
+      data-name="div.side-by-side-wr-faq"
+    >
       <DivSideBySideLeft2 />
       <DivSideBySideRight2 />
     </div>
@@ -2277,7 +2311,7 @@ function DivSideC2() {
       <H4 />
       <P25 />
       <DivBoxesWr1 />
-      <PMarginTop />
+      {/* <PMarginTop /> */}
       <DivSideBySideWr2 />
     </div>
   );
@@ -2285,7 +2319,7 @@ function DivSideC2() {
 
 function SectionSectionSideBySide2() {
   return (
-    <div className="bg-white flex flex-col items-center w-full px-[24px] md:px-[144px]" data-name="section.section-side-by-side">
+    <div className="bg-white flex flex-col items-center w-full md:px-[40px] min-[1101px]:!px-[144px]" data-name="section.section-side-by-side">
       <DivSideC2 />
     </div>
   );
@@ -2393,7 +2427,7 @@ function DivSideBySideWr3() {
 
 function DivSideC3() {
   return (
-    <div className="content-stretch flex flex-col items-center max-w-[1440px] py-[80px] md:py-[120px] relative w-full" data-name="div.side-c">
+    <div className="content-stretch flex flex-col items-center max-w-[1440px] py-[40px] min-[1101px]:py-[120px] relative w-full" data-name="div.side-c">
       <DivSideBySideWr3 />
     </div>
   );
@@ -2401,7 +2435,7 @@ function DivSideC3() {
 
 function SectionSectionSideBySide3() {
   return (
-    <div className="bg-[#f4f5fa] flex flex-col items-center w-full px-[24px] md:px-[144px]" data-name="section.section-side-by-side">
+    <div className="bg-[#f4f5fa] flex flex-col items-center w-full md:px-[40px] min-[1101px]:!px-[144px]" data-name="section.section-side-by-side">
       <DivSideC3 />
     </div>
   );
@@ -2486,15 +2520,22 @@ function DivSideBySideRight4() {
 
 function DivJayBlock1() {
   return (
-    <div className="relative w-full overflow-hidden" style={{ aspectRatio: "566/670" }} data-name="div.jay-block">
-      <img alt="" className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none" src={imgImage4} />
+    <div
+      className="relative w-full overflow-hidden rounded-none md:rounded-2xl"
+      style={{ aspectRatio: "566/670" }}
+      data-name="div.jay-block"
+    >
+      <img alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover object-top" src={imgImage4} />
     </div>
   );
 }
 
 function DivSideBySideLeft4() {
   return (
-    <div className="w-full md:flex-[1_0_0] md:min-h-px md:min-w-px relative" data-name="div.side-by-side-left">
+    <div
+      className="bleed-image-mobile w-full md:flex-[1_0_0] md:min-h-px md:min-w-px relative"
+      data-name="div.side-by-side-left"
+    >
       <DivJayBlock1 />
     </div>
   );
@@ -2502,8 +2543,11 @@ function DivSideBySideLeft4() {
 
 function DivSideBySideWr4() {
   return (
-    /* Image is first in DOM → top on mobile; CSS order flips it right on desktop */
-    <div className="flex flex-col md:flex-row gap-[40px] md:gap-[115px] items-start relative w-full" data-name="div.side-by-side-wr">
+    /* Image first in DOM → stacked on small screens; from 1024px row + order: text left, image right (see responsive.css) */
+    <div
+      className="flex flex-col items-start gap-[40px] relative w-full lg:gap-[115px]"
+      data-name="div.side-by-side-wr-s4"
+    >
       <DivSideBySideLeft4 />
       <DivSideBySideRight4 />
     </div>
@@ -2520,7 +2564,10 @@ function DivSideC4() {
 
 function SectionSectionSideBySide4() {
   return (
-    <div className="bg-white flex flex-col items-center w-full px-[24px] md:px-[144px]" data-name="section.section-side-by-side">
+    <div
+      className="bg-white flex flex-col items-center w-full md:px-[40px] min-[1101px]:!px-[144px]"
+      data-name="section.section-side-by-side"
+    >
       <DivSideC4 />
     </div>
   );

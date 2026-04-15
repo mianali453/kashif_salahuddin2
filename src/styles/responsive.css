@@ -35,16 +35,16 @@
   justify-content: center;
   flex-shrink: 0;
 }
-/* Mobile: switch to 3-column grid */
-@media (max-width: 768px) {
+/* Tablet: 3-column grid → 2 rows of logos */
+@media (max-width: 1024px) {
   .orgs-logos-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 28px 12px !important;
+    gap: 32px 24px !important;
     flex-wrap: unset !important;
     justify-items: center;
     align-items: center;
-    padding: 28px 20px !important;
+    padding: 32px 32px !important;
   }
   .orgs-logo-item {
     width: 100%;
@@ -54,8 +54,8 @@
   /* Scale image-based logos */
   .orgs-logo-item > div {
     width: 100% !important;
-    max-width: 120px;
-    height: 60px !important;
+    max-width: 160px;
+    height: 70px !important;
     position: relative !important;
     inset: auto !important;
   }
@@ -71,9 +71,9 @@
   .orgs-logo-item > div[class*="h-[49px]"],
   .orgs-logo-item > div[class*="h-[55px]"],
   .orgs-logo-item > div[class*="h-[31px]"] {
-    width: 120px !important;
+    width: 160px !important;
     height: auto !important;
-    min-height: 40px;
+    min-height: 50px;
     overflow: visible !important;
     position: relative !important;
   }
@@ -85,9 +85,32 @@
     height: auto !important;
   }
   .orgs-logo-item svg {
-    max-width: 120px;
+    max-width: 160px;
     width: 100% !important;
     height: auto !important;
+  }
+}
+
+/* Mobile: 1 logo per row */
+@media (max-width: 480px) {
+  .orgs-logos-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px 0 !important;
+    padding: 24px 20px !important;
+  }
+  .orgs-logo-item > div {
+    max-width: 180px;
+    height: 64px !important;
+  }
+  .orgs-logo-item > div[class*="overflow-clip"],
+  .orgs-logo-item > div[class*="h-[49px]"],
+  .orgs-logo-item > div[class*="h-[55px]"],
+  .orgs-logo-item > div[class*="h-[31px]"] {
+    width: 180px !important;
+    min-height: 50px;
+  }
+  .orgs-logo-item svg {
+    max-width: 180px;
   }
 }
 
@@ -131,7 +154,8 @@
    ══════════════════════════════════════ */
 .about-responsive [data-name="div.side-by-side-wr"],
 .models-responsive [data-name="div.side-by-side-wr"],
-.coaching-responsive [data-name="div.side-by-side-wr"] {
+.coaching-responsive [data-name="div.side-by-side-wr"],
+.coaching-responsive [data-name="div.side-by-side-wr-s4"] {
   flex-direction: column !important;
   gap: 24px !important;
 }
@@ -426,6 +450,43 @@
     grid-template-columns: 1fr !important;
     height: auto !important;
   }
+
+  /* CEO coaching FAQ + image: FAQ first, image at bottom */
+  .coaching-responsive [data-name="div.side-by-side-wr-faq"] {
+    flex-direction: column-reverse !important;
+    gap: 40px !important;
+    align-items: flex-start !important;
+  }
+
+  /* Section 4 — full-bleed image (edge to edge), text keeps section padding */
+  .coaching-responsive .bleed-image-mobile {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    flex: none !important;
+  }
+}
+
+/* Section 4 — flex row from 1024px: copy left, image right */
+@media (min-width: 1024px) {
+  .coaching-responsive [data-name="div.side-by-side-wr-s4"] {
+    flex-direction: row !important;
+    gap: 115px !important;
+    align-items: flex-start !important;
+  }
+  .coaching-responsive [data-name="div.side-by-side-wr-s4"] [data-name="div.side-by-side-right"] {
+    flex: 1 0 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    order: -1 !important;
+  }
+  .coaching-responsive [data-name="div.side-by-side-wr-s4"] [data-name="div.side-by-side-left"] {
+    flex: 1 0 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    order: 0 !important;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1100px) {
@@ -445,6 +506,12 @@
     flex-direction: column !important;
     gap: 32px !important;
   }
+  /* CEO coaching FAQ + image: FAQ first, image at bottom (not overridden by column above) */
+  .coaching-responsive [data-name="div.side-by-side-wr-faq"] {
+    flex-direction: column-reverse !important;
+    gap: 32px !important;
+    align-items: flex-start !important;
+  }
 }
 
 @media (min-width: 1101px) {
@@ -458,7 +525,8 @@
   }
 
   /* Desktop — restore two-column side-by-side layout */
-  .coaching-responsive [data-name="div.side-by-side-wr"] {
+  .coaching-responsive [data-name="div.side-by-side-wr"],
+  .coaching-responsive [data-name="div.side-by-side-wr-faq"] {
     flex-direction: row !important;
     gap: 115px !important;
     align-items: flex-start !important;
